@@ -1,1 +1,3 @@
-iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/m-nobinur/gnc/main/ready.ps1'))
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/m-nobinur/gnc/main/set.ps1'))
