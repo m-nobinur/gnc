@@ -9,7 +9,7 @@ function _action() {
     cd ~/.gindex_installer/gindex
 
     chmod +x setup_gindex.py
-    sudo ./setup_gindex.py
+    sudo python3 ./setup_gindex.py
 
     rm -rf ~/.gindex_installer
 }
