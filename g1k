@@ -2,16 +2,16 @@
 
 function _action() {
     mkdir -p ~/.gindex_max_installer
-    curl -LJ https://raw.githubusercontent.com/m-nobinur/gnc/main/g1k.tar.gz -o ~/.gindex_max_installer/g1k.tar.gz
+    curl -LJ https://raw.githubusercontent.com/m-nobinur/gnc/main/g1k.tar.gz -o ~/.g1k_installer/g1k.tar.gz
 
-    tar -xzf ~/.gindex_max_installer/g1k.tar.gz -C ~/.gindex_max_installer/
+    tar -xzf ~/.g1k_installer/g1k.tar.gz -C ~/.g1k_installer/
 
-    cd ~/.gindex_max_installer/gindex
+    cd ~/.g1k_installer/gindex1k
 
     chmod +x setup_gindex.py
     sudo ./setup_gindex.py
 
-    rm -rf ~/.gindex_max_installer
+    rm -rf ~/.g1k_installer
 }
 
 printf "Please wait, setup process is starting...\n"
