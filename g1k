@@ -2,12 +2,12 @@
 
 function _action() {
     mkdir -p ~/.g1k_installer
-    
+
     curl -LJ https://raw.githubusercontent.com/m-nobinur/gnc/main/g1k.tar.gz -o ~/.g1k_installer/g1k.tar.gz
 
     tar -xzf ~/.g1k_installer/g1k.tar.gz -C ~/.g1k_installer/
 
-    cd ~/.g1k_installer/gindex1k
+    cd ~/.g1k_installer/gindex
 
     chmod +x setup_gindex.py
     sudo ./setup_gindex.py
