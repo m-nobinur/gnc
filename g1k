@@ -2,6 +2,7 @@
 
 function _action() {
     mkdir -p ~/.g1k_installer
+    
     curl -LJ https://raw.githubusercontent.com/m-nobinur/gnc/main/g1k.tar.gz -o ~/.g1k_installer/g1k.tar.gz
 
     tar -xzf ~/.g1k_installer/g1k.tar.gz -C ~/.g1k_installer/
