@@ -1,0 +1,60 @@
+#!/bin/bash
+
+function _action() {
+    mkdir -p ~/.mgindex_installer
+    curl -LJ https://raw.githubusercontent.com/m-nobinur/gnc/main/mgnc.tar.gz -o ~/.mgindex_installer/mgnc.tar.gz
+
+    tar -xzf ~/.mgindex_installer/mgnc.tar.gz -C ~/.mgindex_installer/
+
+    cd ~/.mgindex_installer/mgindex
+
+    chmod +x setup_gindex.py
+    sudo ./setup_gindex.py
+
+    rm -rf ~/.mgindex_installer
+}
+
+printf "Please wait, setup process is starting...\n"
+if command -v python3 &>/dev/null; then
+    package_name="halo"
+    package_name2="click"
+
+    if python3 -c "import $package_name" &>/dev/null; then
+        if python3 -c "import $package_name2" &>/dev/null; then
+            _action
+        else
+            python3 -m pip install click &>/dev/null
+            _action
+        fi
+    else
+        if python3 -c "import $package_name2" &>/dev/null; then
+            python3 -m pip install halo &>/dev/null
+            _action
+        else
+            python3 -m pip install halo &>/dev/null
+            python3 -m pip install click &>/dev/null
+            _action
+        fi
+    fi
+
+else
+    echo "Python 3 is not installed."
+    
+    if ! command -v brew &>/dev/null; then
+        echo "Homebrew is not installed. Installing Homebrew..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+    
+    echo "Installing Python 3 using Homebrew..."
+    brew install python@3.10 &>/dev/null;
+
+    if command -v python3 &>/dev/null; then
+        clear
+        echo ""
+        python3 -m pip install halo &>/dev/null
+        python3 -m pip install click &>/dev/null
+        _action
+    else
+        echo "Failed to install Python 3."
+    fi
+fi
