@@ -22,7 +22,7 @@ function setup_gindexer() {
 echo "Please wait, setup process is starting..."
 
 if command -v python3 &>/dev/null; then
-    _action
+    setup_gindexer
 else
     echo "Python3 is not installed. Install Python3 and try again."
 fi
